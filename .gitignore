@@ -1,5 +1,12 @@
-## Idea ##
+## 开发工具 ##
 .idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+## 构建输出 ##
 build/
 
 ## Gradle ##
@@ -14,3 +21,9 @@ fabric/runs
 
 ## NeoForge ##
 neoforge/run
+
+## 临时文件和本地配置 ##
+*.log
+*.tmp
+*.bak
+local.properties

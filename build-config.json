@@ -3,12 +3,13 @@
     "name": "EnchantmentDescriptions",
     "group": "net.darkhax.enchdesc",
     "authors": [
-      "Darkhax"
+      "Darkhax",
+      "BredyAK"
     ],
     "id": "enchdesc",
     "license": "LGPL 2.1",
-    "description": "Adds descriptions of enchantment effects to their descriptions.",
-    "repo": "https://github.com/Darkhax-Minecraft/Enchantment-Descriptions",
+    "description": "为物品提示添加附魔说明，并修复 MINEZ 客户端的提示框兼容性问题。",
+    "repo": "https://github.com/MINEZ/EnchantmentDescriptions",
     "client": true
   },
   "curseforge": {

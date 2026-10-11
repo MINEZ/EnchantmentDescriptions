@@ -12,15 +12,23 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Mixin(ItemStack.class)
 public class MixinItemStack {
 
-    @Inject(method = "getTooltipLines(Lnet/minecraft/world/item/Item$TooltipContext;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/item/TooltipFlag;)Ljava/util/List;", at = @At("RETURN"))
+    @Inject(method = "getTooltipLines(Lnet/minecraft/world/item/Item$TooltipContext;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/item/TooltipFlag;)Ljava/util/List;", at = @At("RETURN"), cancellable = true)
     public void afterEnchantmentTooltips(Item.TooltipContext tooltipContext, Player player, TooltipFlag tooltipFlag, CallbackInfoReturnable<List<Component>> cir) {
+        List<Component> tooltips = cir.getReturnValue();
+        // 空列表可能表示物品提示已隐藏，保留原有行为。
+        if (tooltips.isEmpty()) {
+            return;
+        }
         if (EnchantmentDescriptionsMod.canDisplayDescription() && !EnchantmentDescriptionsMod.isKeybindConditionMet() && EnchantmentDescriptionsMod.config.display_activate_text) {
-            cir.getReturnValue().add(EnchantmentDescriptionsMod.getKeybindText());
+            List<Component> updatedTooltips = new ArrayList<>(tooltips);
+            updatedTooltips.add(EnchantmentDescriptionsMod.getKeybindText());
+            cir.setReturnValue(updatedTooltips);
         }
     }
 

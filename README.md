@@ -1,35 +1,27 @@
 <!-- name-start -->
-# EnchantmentDescriptions [![CurseForge Project](https://img.shields.io/curseforge/dt/250419?logo=curseforge&label=CurseForge&style=flat-square&labelColor=2D2D2D&color=555555)](https://www.curseforge.com/minecraft/mc-mods/enchantment-descriptions) [![Modrinth Project](https://img.shields.io/modrinth/dt/UVtY3ZAC?logo=modrinth&label=Modrinth&style=flat-square&labelColor=2D2D2D&color=555555)](https://modrinth.com/mod/enchantment-descriptions) [![Maven Project](https://img.shields.io/maven-metadata/v?style=flat-square&logoColor=D31A38&labelColor=2D2D2D&color=555555&label=Latest&logo=gradle&metadataUrl=https%3A%2F%2Fmaven.blamejared.com%2Fnet%2Fdarkhax%2Fenchdesc%2Fenchdesc-common-26.3%2Fmaven-metadata.xml)](https://maven.blamejared.com/net/darkhax/enchdesc)
+# EnchantmentDescriptions
+
+[![MINEZ version](docs/badges/version.svg)](https://github.com/MINEZ/EnchantmentDescriptions/releases)
 <!-- name-end -->
 
 <!-- description-start -->
-This is the official GitHub repo for the EnchantmentDescriptions mod. Adds descriptions of enchantment effects to their descriptions. You can download this mod from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/enchantment-descriptions) or [Modrinth](https://modrinth.com/mod/enchantment-descriptions). Please report issues [here](https://github.com/Darkhax-Minecraft/Enchantment-Descriptions/issues).
+This is the MINEZ fork of [Enchantment Descriptions](https://github.com/Darkhax-Minecraft/Enchantment-Descriptions) for Minecraft 26.3. It fixes crashes when an activation hint is added to an immutable tooltip list and preserves hidden tooltips. The original mod ID, `enchdesc`, is retained.
+
+Download this fork from [GitHub Releases](https://github.com/MINEZ/EnchantmentDescriptions/releases) and report fork-specific issues [here](https://github.com/MINEZ/EnchantmentDescriptions/issues). See [简体中文说明](README_zh-CN.md) for build and installation instructions.
 <!-- description-end -->
 
 <!-- maven-start -->
-## Maven Dependency
-This project is available on the [BlameJared Maven](https://maven.blamejared.com).
+## Build this fork
 
-If you are using [Gradle](https://gradle.org) you can add the mod as a dependency by adding the following
-to your `build.gradle` file.
+Use JDK 25 and the `26.3` branch. Open PowerShell in the repository root and run:
 
-```groovy
-repositories {
-    maven {
-        url 'https://maven.blamejared.com'
-    }
-}
-
-dependencies {
-     // NeoForge
-     implementation group: 'net.darkhax.enchdesc', name: 'enchdesc-neoforge-26.3', version: '26.3.0.0'
-     // Fabric
-     implementation group: 'net.darkhax.enchdesc', name: 'enchdesc-fabric-26.3', version: '26.3.0.0'
-     // Common / MultiLoader / Vanilla / No Loader
-     implementation group: 'net.darkhax.enchdesc', name: 'enchdesc-common-26.3', version: '26.3.0.0'
-}
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\build-fabric.ps1
 ```
 
+The build script reads `fork-version.txt` and supplies the build number expected by the upstream conventions plugin. The Fabric artifact is `fabric/build/libs/EnchantmentDescriptions-fabric-MC26.3-26.3.0.2.1.jar`.
+
+Replace the existing EnchantmentDescriptions jar with this artifact and keep the required Prickle dependency installed. The MINEZ fork is distributed through GitHub Releases; the upstream CurseForge, Modrinth and Maven pages do not distribute this fork.
 <!-- maven-end -->
 
 <!-- sponsor-start -->

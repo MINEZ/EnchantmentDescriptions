@@ -1,49 +1,49 @@
 {
-  "schemaVersion": 1,
-  "id": "enchdesc",
-  "version": "26.3.0.0",
-  "name": "EnchantmentDescriptions",
-  "description": "Adds descriptions of enchantment effects to their descriptions.",
-  "authors": [
-    "Darkhax"
-  ],
-  "contributors": [
-    "This project is made possible with Patreon support from players like you. Thank you!",
-    "lothrazar, techsquirrel, Tobias Ward, noobanidus"
-  ],
-  "contact": {
-    "sources": "https://github.com/Darkhax-Minecraft/Enchantment-Descriptions",
-    "issues": "https://github.com/Darkhax-Minecraft/Enchantment-Descriptions/issues",
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/enchantment-descriptions"
-  },
-  "license": "LGPL 2.1",
-  "icon": "logo_enchdesc.png",
-  "environment": "client",
-  "entrypoints": {
-    "main": [
-      "net.darkhax.enchdesc.fabric.EnchantmentDescriptionsFabric"
+    "schemaVersion": 1,
+    "id": "enchdesc",
+    "version": "26.3.0.2.1",
+    "name": "EnchantmentDescriptions",
+    "description": "为物品提示添加附魔说明，并修复 MINEZ 客户端的提示框兼容性问题。",
+    "authors": [
+        "Darkhax",
+        "BredyAK"
     ],
-    "client": [
-      "net.darkhax.enchdesc.fabric.EnchantmentDescriptionsFabricClient"
-    ]
-  },
-  "mixins": [
-    "enchdesc.common.mixins.json",
-    "enchdesc.fabric.mixins.json"
-  ],
-  "depends": {
-    "fabricloader": ">=0.19.5",
-    "fabric-api": "*",
-    "minecraft": ">=26.3",
-    "java": ">=25",
-    "prickle": "*"
-  },
-  "custom": {
-    "modmenu": {
-      "links": {
-        "modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/enchantment-descriptions",
-        "modmenu.modrinth": "https://modrinth.com/mod/enchantment-descriptions"
-      }
+    "contributors": [
+        "This project is made possible with Patreon support from players like you. Thank you!",
+        ""
+    ],
+    "contact": {
+        "sources": "https://github.com/MINEZ/EnchantmentDescriptions",
+        "issues": "https://github.com/MINEZ/EnchantmentDescriptions/issues",
+        "homepage": "https://github.com/MINEZ/EnchantmentDescriptions/releases"
+    },
+    "license": "LGPL 2.1",
+    "icon": "logo_enchdesc.png",
+    "environment": "client",
+    "entrypoints": {
+        "main": [
+            "net.darkhax.enchdesc.fabric.EnchantmentDescriptionsFabric"
+        ],
+        "client": [
+            "net.darkhax.enchdesc.fabric.EnchantmentDescriptionsFabricClient"
+        ]
+    },
+    "mixins": [
+        "enchdesc.common.mixins.json",
+        "enchdesc.fabric.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.19.5",
+        "fabric-api": "*",
+        "minecraft": ">=26.3",
+        "java": ">=25",
+        "prickle": "*"
+    },
+    "custom": {
+        "modmenu": {
+            "links": {
+                "GitHub": "https://github.com/MINEZ/EnchantmentDescriptions/releases"
+            }
+        }
     }
-  }
 }
